@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div id= "agregarpastel" class="container">
+    <form action = "/postm_pastel/{{id}} " method = "POST" enctype = "multipart/form-data">{% csrf_token%}
+        <div class = "modal-content">
+            <center><h4>Modificar pastel</h4></center>
+            {% csrf_token %}
+            </br>
+            {{form.as_p}}
+        </div>
+        <div class = "modal-footer">
+            <button type = "button" class = "btn modal-close waves-effect waves-green grey btn-small">Cancelar</button>
+            <button type = "submit" class = "btn waves-effect waves waves-green green">Agregar</button>
+        </div>
+    </form>
+</div>
+
+{% endblock content%}

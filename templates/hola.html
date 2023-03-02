@@ -8,7 +8,7 @@
 
     }
     .card{
-        display: inline-block;
+        /* display: inline-block; */
 
     }
     .card .card-image img{
@@ -25,7 +25,7 @@
     <br/>
     <div class="row">
         <div class="col s6 m4 l4">
-            <p class="head">LISTA PASTELES</p>
+            <p class="head">PASTELES</p>
         </div>
         <form class="col s6 m8 l8">
            <div class="row">
@@ -37,29 +37,104 @@
             </div> 
         </form>
     </div>
-    <div class="row">
+    <div class="row lpastel nmodificarpastel">
         {% for i in consulta %}
-            <div class="col s12 m12 l12">
-                <a href="" id="{{i.id}}">
-                    <div class="card-content">
-                        <span class="card-title activator grey-tex text-darken-4"><i class="material-icons">telephone</i>sabor: {{i.sabor}}</span>
+                    <div class="col s12 m12 l12">
+                        <a id="{{i.id}}" href="/detalle_pastel/{{i.id}}">
+                            <div class = "card">
+                                <div class="card-content">
+                                    <span class="card-title activator grey-tex text-darken-4"><i class="material-icons">cake</i>sabor: {{i.sabor}} <i class = "material-icons right btn_delete">delete</i> </span>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                </a>
-            </div>
         {% endfor %}
     </div>
 </div>
-{{ i.pisos}}
-<div class="container">
-    {{formulario.as_p}}
+<div class="fixed-action-btn">
+    <a class = "btn-floating btn-large pulsa para agregarpastel" style = "background-color: #0066ff">
+        <i class = "large material-icons">add</i>
+    </a>
 </div>
 
-{{consulta}}
+<div id = "agregarpastel" class="modal modal-big">
+    <form action = "{% url 'post_pastel'%} " method = "POST" enctype = "multipart/form-data">{% csrf_token%}
+        <div class = "modal-content">
+            <center><h4>Agregar pastel</h4></center>
+            </br>
+            {{formulario.as_p}}
+        </div>
+        <div class = "modal-footer">
+            <button type = "button" class = "btn modal-close waves-effect waves-green grey btn-small">Cancelar</button>
+            <button type = "submit" class = "btn waves-effect waves waves-green green">Agregar</button>
+        </div>
+    </form>
+</div>
+
+<div id= "modificarpastel" class="modal modal-big">
+    <form action = "{% url 'post_pastel'%} " method = "PUT" enctype = "multipart/form-data">{% csrf_token%}
+        <div class = "modal-content">
+            <center><h4>Modificar pastel</h4></center>
+            </br>
+            {{formulario.as_p}}
+        </div>
+        <div class = "modal-footer">
+            <button type = "button" class = "btn modal-close waves-effect waves-green grey btn-small">Cancelar</button>
+            <button type = "submit" class = "btn waves-effect waves waves-green green">Agregar</button>
+        </div>
+    </form>
+</div>
+
 {% endblock content%}
 
 
 {% block js %}
+<script type = "text/javascript">
+    $(document).ready(function(){
+        $('.materialboxed').materialbox();
+        $('#agregarpastel').modal({
+            dismissible: true,
+        });
+    });
+    $(document).on("click",".agregarpastel", function(){
+        $('#agregarpastel').modal('open');
+    });
+    $(document).on("click",".modificarpastel", function(){
+        $('#modificarpastel').modal('open');
+    });
 
+    function agregarpastel(formData){
+        $.ajax({
+            url:"{% url 'post_pastel' %}",
+            method:"POST",
+            data:formData,
+            success: function(data){
+                var injerto='<div class="col s12 m12 l12">'+
+                '<a href="">'+
+                    '<div class = "card">'+
+                        '<div class="card-content">'+
+                            '<span class="card-title activator grey-tex text-darken-4"><i class="material-icons">cake</i>sabor: {{i.sabor}} <i class = "material-icons right btn_delete">delete</i> </span>'+
+                        '</div>'+
+                    '</div>'+
+                '</a>'+
+            '</div>';
+            $('.pastel').append(injerto)
+                M.toast({html: "pastelito agregado exitosamente!!!!!"});
+                $('#agregarpastel').modal('close');
+            },
+            error:function(data){
+                console.log("error")
+            }
+        });
+    }
+    $(document).ready(function(){
+        $('.materialboxed').materialbox();
+        $('#modificarpastel').modal({
+            dismissible: true,
+        });
+    });
+
+</script>
 
 
 {% endblock js %}
