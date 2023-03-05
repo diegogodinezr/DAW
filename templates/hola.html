@@ -37,13 +37,13 @@
             </div> 
         </form>
     </div>
-    <div class="row lpastel nmodificarpastel">
+    <div class="row pastel nmodificarpastel"> <!--href="/postm_pastel/{{i.id}}"  action="{% url 'post_pastel' %}"href="/detalle_pastel/{{i.id}}" -->
         {% for i in consulta %}
                     <div class="col s12 m12 l12">
                         <a id="{{i.id}}" href="/detalle_pastel/{{i.id}}">
                             <div class = "card">
                                 <div class="card-content">
-                                    <span class="card-title activator grey-tex text-darken-4"><i class="material-icons">cake</i>sabor: {{i.sabor}} <i class = "material-icons right btn_delete">delete</i> </span>
+                                    <span class="card-title activator grey-tex text-darken-4"><i class="material-icons">cake</i>Sabor: {{i.sabor}}   Precio:${{i.precio}}<i class = "material-icons right btn_delete">delete</i> </span>
                                 </div>
                             </div>
                         </a>
@@ -71,31 +71,28 @@
     </form>
 </div>
 
-<div id= "modificarpastel" class="modal modal-big">
-    <form action = "{% url 'post_pastel'%} " method = "PUT" enctype = "multipart/form-data">{% csrf_token%}
-        <div class = "modal-content">
-            <center><h4>Modificar pastel</h4></center>
-            </br>
-            {{formulario.as_p}}
-        </div>
-        <div class = "modal-footer">
-            <button type = "button" class = "btn modal-close waves-effect waves-green grey btn-small">Cancelar</button>
-            <button type = "submit" class = "btn waves-effect waves waves-green green">Agregar</button>
-        </div>
-    </form>
-</div>
+
 
 {% endblock content%}
 
 
 {% block js %}
 <script type = "text/javascript">
+    
     $(document).ready(function(){
         $('.materialboxed').materialbox();
         $('#agregarpastel').modal({
             dismissible: true,
         });
     });
+
+    $(document).ready(function(){
+        $('.materialboxed').materialbox();
+        $('#modificarpastel').modal({
+            dismissible: true,
+        });
+    });
+
     $(document).on("click",".agregarpastel", function(){
         $('#agregarpastel').modal('open');
     });
@@ -127,12 +124,8 @@
             }
         });
     }
-    $(document).ready(function(){
-        $('.materialboxed').materialbox();
-        $('#modificarpastel').modal({
-            dismissible: true,
-        });
-    });
+
+
 
 </script>
 
