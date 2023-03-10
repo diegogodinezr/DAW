@@ -13,12 +13,14 @@ def sacar_datos(request, id):
     formulario = pastelform(instance=objeto)
     datos = {'formulario': formulario}
     html_form = render_to_string('updatepastel.html', datos, request=request)
-    context={
-        'formulario':formulario,
-        'objeto':objeto,
-        'id':id,
-    }
     return HttpResponse(html_form,id)
+
+def removerpastel(request):
+    idpastel = request.POST["idpastel"]
+    consulta = pastel.objects.get(id=idpastel)
+    consulta.delete()
+    return HttpResponse('pastel eliminado correctamente')
+
 
 # Create your views here.
 def landing(request):

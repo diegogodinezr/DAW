@@ -1,14 +1,14 @@
 <div id="agregarpastel" class="container">
     <form action="/postm_pastel/{{id}}" method="POST" enctype="multipart/form-data">
         <div class="modal-content">
-            <center><h4>Modificar Pastel:{{id}}</h4></center>
+            <center><h4>Modificar pastel</h4></center>
             {% csrf_token %}
             <br/>
             {{form.as_p}}
         </div>
         <div class="modal-footer">
             <button type="button" class="btn modal-close waves-effect waves-green grey btn-small" >Cancelar</button>
-            <button type="submit" class="btn waves-effect waves-green green ">Agregar</button>
+            <button type="submit" class="btn waves-effect waves-green green ">Modificar</button>
         </div>
     </form>
 </div>
