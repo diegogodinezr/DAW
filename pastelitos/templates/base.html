@@ -181,20 +181,20 @@
         display:block;
     }
 
-
     </style>
 	{% if not view_name == "landing" %}
     <nav style="background-color:#2b2b2b">
         <div class="nav-wrapper">
-
           <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-          <a href="/home" class="brand-logo brand-logo-lg"> <i class="material-icons">wallet</i>DIGO BANK</a>
-          <ul class="right ">
-            <li><a href="/home"><i class="material-icons">apps</i></a></li>
+          <a href = "/" class="brand-logo brand-logo-lg"><i class="material-icons">cake</i>Pasteles</a>
+          <ul class="right">
+            <li><a href="http://127.0.0.1:8000/ropa/"><i>Ropa</i></a></li>
+            <li><a href="http://127.0.0.1:8000/abarrotes/"><i>Abarrotes</i></a></li>
+            <li><a href="/"><i>Pastelitos</i></a></li>
           </ul>
           <ul class="left hide-on-med-and-down " >
                 <li><a href="#" data-target="slide-out" class="sidenav-trigger "><i class="material-icons">menu</i></a></li>
-                <li><a href="/home" class="brand-logo "> <i class="material-icons">wallet</i>DIGO BANK</a></li>
+                <li><a href="/" class="brand-logo "> <i class="material-icons">cake</i>Pasteles</a></li>
           </ul>
         </div>
     </nav>
@@ -216,23 +216,22 @@
     </li>
 
     {% if request.user.is_authenticated %}
-        <li><a class="waves-teal" href="/home"><i class="material-icons">home</i>Home</a></li>
-        <li><a class="waves-teal" href="/produccion"><i class="material-icons">payments</i>Pagos</a></li>
-        <li><a class="waves-teal" href="/zonas"><i class="material-icons">trending_up</i>Inversiones</a></li>
-        <li><a class="waves-teal" href="/trabajadores"><i class="material-icons">currency_bitcoin</i>Cryptos</a></li>
-        <li><a class="waves-teal" href="/plantas"><i class="material-icons">wallet</i>Tarjetas</a></li>
+        <li><a class="waves-teal" href="/"><i class="material-icons">cake</i>Pasteles</a></li>
+        <li><a class="waves-teal" href="/landingcliente"><i class="material-icons">groups</i>Clientes</a></li>
+        <li><a class="waves-teal" href="/landingproveedor"><i class="material-icons">cases</i>Proveedores</a></li>
+        <li><a class="waves-teal" href="/landingsucursal"><i class="material-icons">store</i>Sucursales</a></li>
         {% if request.user.is_staff %}
-         <li><a class="waves-teal" href="/admin"><i class="material-icons">account_balance</i>Balance de la cuenta</a></li>
+         <!--<li><a class="waves-teal" href="/admin"><i class="material-icons">account_balance</i>Balance de la cuenta</a></li> -->
         {%  endif %}
         
         {% if request.user.tipo_usuario.cordiandor_de_area == 1 %}
-        <li><a class="waves-teal" href="/plantas"><i class="material-icons">filter_vintage</i>Recursos humanos</a></li>
+        <!-- <li><a class="waves-teal" href="/plantas"><i class="material-icons">filter_vintage</i>Recursos humanos</a></li>-->
         {% else %}
-        <li><a class="waves-teal" href="/plantas"><i class="material-icons">filter_vintage</i>{{request.user.detalle_usuario.telefono}}</a></li>
-        <li><a class="waves-teal" href="/plantas"><i class="material-icons">filter_vintage</i>{{request.user.tipo_usuario.cordiandor_de_area}}</a></li>
+        <!-- <li><a class="waves-teal" href="/plantas"><i class="material-icons">filter_vintage</i>{{request.user.detalle_usuario.telefono}}</a></li>-->
+        <!-- <li><a class="waves-teal" href="/plantas"><i class="material-icons">filter_vintage</i>{{request.user.tipo_usuario.cordiandor_de_area}}</a></li>-->
 
         {% endif %}
-        <li><a href="/logout"><i class="material-icons">exit_to_app</i>Cerrar sesión</a></li>
+        <!--<li><a href="/logout"><i class="material-icons">exit_to_app</i>Cerrar sesión</a></li>-->
 
     {% endif %}
 
@@ -342,8 +341,8 @@
 <footer>
       <div class="footer-copyright grey-text black">
         <div class="container">
-        © 2021 Copyright
-        <a class="grey-text"alling=" center" href="#!">    Conoce más acerca de VelaszcÕ.inc</a>
+        © 2023 Copyright
+        <a class="grey-text"alling=" center" href="#!"></a>
         </div>
       </div>
 </footer>
