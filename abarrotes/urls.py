@@ -1,11 +1,21 @@
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url,include
-from pastelitos.views import *
+from abarrotes.views import *
 from .views import *
-from . import views
 
 urlpatterns = [
-    path('', views.hola, name="hola"),
+    url(r'^$',landinga, name="landinga"),
 
+    url('landingproductoa/',landingproductoa, name="landingproductoaa"),
+
+    url('landingclientea/',landingclientea, name="landingclientea"),
+
+    url('landingproveedora/',landingproveedora, name="landingproveedora"),
+    
+    url('landingsucursala/',landingsucursala, name="landingsucursala"),
+
+    url('landingempleadoa/',landingempleadoa, name="landingempleadoa"),
+
+    url('landingcategoriaa/',landingcategoriaa, name="landingcategoriaa"),
 ]

@@ -2,7 +2,6 @@ from django.shortcuts import render
 from .forms import *
 from .models import *
 from django.shortcuts import redirect
-
 from django.http import HttpResponse
 from django.template.loader import render_to_string
 
@@ -109,7 +108,10 @@ def post_cliente(request):
     if request.method=="POST":
         form=clienteform(request.POST,request.FILES)
         if form.is_valid():
-            print(form)
+            num = request.POST["num_int"]
+            if num == "":
+                print ("si entro")
+                num = 0
             cliente.objects.create(
                 nombre = request.POST["nombre"],
                 apellido = request.POST["apellido"],
@@ -117,7 +119,7 @@ def post_cliente(request):
                 calle = request.POST["calle"],
                 colonia = request.POST["colonia"],
                 num_ext = request.POST["num_ext"],
-                num_int = request.POST["num_int"],
+                num_int = num,
                 estado = request.POST["estado"],
                 ciudad = request.POST["ciudad"],
             )
@@ -136,13 +138,17 @@ def updatecliente(request,id):
         print("Hola")
         form=clienteform(request.POST,request.FILES)
         if form.is_valid():
+            num = request.POST["num_int"]
+            if num == "":
+                print ("si entro")
+                num = 0
             resultado.nombre = request.POST["nombre"]
             resultado.apellido = request.POST["apellido"]
             resultado.codigo_postal = request.POST["codigo_postal"]
             resultado.calle = request.POST["calle"]
             resultado.colonia = request.POST["colonia"]
             resultado.num_ext = request.POST["num_ext"]
-            resultado.num_int = request.POST["num_int"]
+            resultado.num_int = num
             resultado.estado = request.POST["estado"]
             resultado.ciudad = request.POST["ciudad"]
             resultado.save()
@@ -188,13 +194,17 @@ def post_proveedor(request):
         form=proveedorform(request.POST,request.FILES)
         if form.is_valid():
             print(form)
+            num = request.POST["num_int"]
+            if num == "":
+                print ("si entro")
+                num = 0
             proveedor.objects.create(
                 empresa = request.POST["empresa"],
                 codigo_postal = request.POST["codigo_postal"],
                 calle = request.POST["calle"],
                 colonia = request.POST["colonia"],
                 num_ext = request.POST["num_ext"],
-                num_int = request.POST["num_int"],
+                num_int = num,
                 estado = request.POST["estado"],
                 ciudad = request.POST["ciudad"],
                 telefono = request.POST["telefono"],
@@ -214,12 +224,16 @@ def updateproveedor(request,id):
         print("Hola")
         form=proveedorform(request.POST,request.FILES)
         if form.is_valid():
+            num = request.POST["num_int"]
+            if num == "":
+                print ("si entro")
+                num = 0
             resultado.empresa = request.POST["empresa"]
             resultado.codigo_postal = request.POST["codigo_postal"]
             resultado.calle = request.POST["calle"]
             resultado.colonia = request.POST["colonia"]
             resultado.num_ext = request.POST["num_ext"]
-            resultado.num_int = request.POST["num_int"]
+            resultado.num_int = num
             resultado.estado = request.POST["estado"]
             resultado.ciudad = request.POST["ciudad"]
             resultado.telefono = request.POST["telefono"]
@@ -266,12 +280,16 @@ def post_sucursal(request):
         form=sucursalform(request.POST,request.FILES)
         if form.is_valid():
             print(form)
+            num = request.POST["num_int"]
+            if num == "":
+                print ("si entro")
+                num = 0
             sucursal.objects.create(
                 codigo_postal = request.POST["codigo_postal"],
                 calle = request.POST["calle"],
                 colonia = request.POST["colonia"],
                 num_ext = request.POST["num_ext"],
-                num_int = request.POST["num_int"],
+                num_int = num,
                 estado = request.POST["estado"],
                 ciudad = request.POST["ciudad"],
                 telefono = request.POST["telefono"],
@@ -291,11 +309,15 @@ def updatesucursal(request,id):
         print("Hola")
         form=sucursalform(request.POST,request.FILES)
         if form.is_valid():
+            num = request.POST["num_int"]
+            if num == "":
+                print ("si entro")
+                num = 0
             resultado.codigo_postal = request.POST["codigo_postal"]
             resultado.calle = request.POST["calle"]
             resultado.colonia = request.POST["colonia"]
             resultado.num_ext = request.POST["num_ext"]
-            resultado.num_int = request.POST["num_int"]
+            resultado.num_int = num
             resultado.estado = request.POST["estado"]
             resultado.ciudad = request.POST["ciudad"]
             resultado.telefono = request.POST["telefono"]

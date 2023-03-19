@@ -25,7 +25,7 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^', include('pastelitos.urls')),
-    path('abarrotes/', include('abarrotes.urls')),
+    url('abarrotes/', include('abarrotes.urls')),
     url('ropa/', include('ropa.urls')),
 ]
 
