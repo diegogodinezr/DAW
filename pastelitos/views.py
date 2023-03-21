@@ -37,7 +37,6 @@ def post_pastel(request):
     if request.method=="POST":
         form=pastelform(request.POST,request.FILES)
         if form.is_valid():
-            print(form)
             pastel.objects.create(
                 cubierta = request.POST["cubierta"],
                 precio = request.POST["precio"],
@@ -53,12 +52,10 @@ def post_pastel(request):
     
 def updatepastel(request,id):
     resultado=pastel.objects.get(id=id)
-    print(id)
     id=id
     form=pastelform(instance=resultado)
     template_to_return = "updatepastel.html"
     if request.method=="POST":
-        print("Hola")
         form=pastelform(request.POST,request.FILES)
         if form.is_valid():
             resultado.cubierta=request.POST["cubierta"]
@@ -110,7 +107,6 @@ def post_cliente(request):
         if form.is_valid():
             num = request.POST["num_int"]
             if num == "":
-                print ("si entro")
                 num = 0
             cliente.objects.create(
                 nombre = request.POST["nombre"],
@@ -130,17 +126,14 @@ def post_cliente(request):
     
 def updatecliente(request,id):
     resultado=cliente.objects.get(id=id)
-    print(id)
     id=id
     form=clienteform(instance=resultado)
     template_to_return = "updatecliente.html"
     if request.method=="POST":
-        print("Hola")
         form=clienteform(request.POST,request.FILES)
         if form.is_valid():
             num = request.POST["num_int"]
             if num == "":
-                print ("si entro")
                 num = 0
             resultado.nombre = request.POST["nombre"]
             resultado.apellido = request.POST["apellido"]
@@ -193,10 +186,8 @@ def post_proveedor(request):
     if request.method=="POST":
         form=proveedorform(request.POST,request.FILES)
         if form.is_valid():
-            print(form)
             num = request.POST["num_int"]
             if num == "":
-                print ("si entro")
                 num = 0
             proveedor.objects.create(
                 empresa = request.POST["empresa"],
@@ -216,17 +207,14 @@ def post_proveedor(request):
     
 def updateproveedor(request,id):
     resultado=proveedor.objects.get(id=id)
-    print(id)
     id=id
     form=proveedorform(instance=resultado)
     template_to_return = "updateproveedor.html"
     if request.method=="POST":
-        print("Hola")
         form=proveedorform(request.POST,request.FILES)
         if form.is_valid():
             num = request.POST["num_int"]
             if num == "":
-                print ("si entro")
                 num = 0
             resultado.empresa = request.POST["empresa"]
             resultado.codigo_postal = request.POST["codigo_postal"]
@@ -279,10 +267,8 @@ def post_sucursal(request):
     if request.method=="POST":
         form=sucursalform(request.POST,request.FILES)
         if form.is_valid():
-            print(form)
             num = request.POST["num_int"]
             if num == "":
-                print ("si entro")
                 num = 0
             sucursal.objects.create(
                 codigo_postal = request.POST["codigo_postal"],
@@ -301,17 +287,14 @@ def post_sucursal(request):
     
 def updatesucursal(request,id):
     resultado=sucursal.objects.get(id=id)
-    print(id)
     id=id
     form=sucursalform(instance=resultado)
     template_to_return = "updatesucursal.html"
     if request.method=="POST":
-        print("Hola")
         form=sucursalform(request.POST,request.FILES)
         if form.is_valid():
             num = request.POST["num_int"]
             if num == "":
-                print ("si entro")
                 num = 0
             resultado.codigo_postal = request.POST["codigo_postal"]
             resultado.calle = request.POST["calle"]

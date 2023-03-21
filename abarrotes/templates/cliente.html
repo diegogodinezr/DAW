@@ -2,10 +2,221 @@
 {% load static %}
 
 {% block content %}
-<h1> cliente</h1>
+<input type="hidden" id="csrf_token" value="{{ csrf_token }}">
+<style>
+    @media screen and (max-with:600px){
+
+    }
+    .card{
+        /* display: inline-block; */
+
+    }
+    .card .card-image img{
+        height:200px;
+    }
+    @media (max-width: 600px){
+        .head{
+            font-size: 15px;
+        }
+        .letras{
+            font-size: 15px;
+        }
+    }
+    .card{
+        padding: 30px
+        height:80px;
+    }
+    .head{
+        font-size: 25px;
+    }
+    .cont-card{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .a-card{
+        width: 100%;
+    }
+    .btn_delete{
+        cursor: pointer;
+    }
+    .delete{
+        display: flex;
+        align-items: center;
+        padding-right: 24px;
+    }
+</style>
+<div class="container">
+    <br/>
+    <div class="row">
+        <div class="col s6 m4 l4">
+            <p class="head">CLIENTES</p>
+        </div>
+        <form class="col s6 m8 l8">
+           <div class="row">
+                <!--<div class = "input-field col s12">
+                    <i class="material-icons prefix">search</i>
+                    <input id="icon-telephone" type="tel" class="validate">
+                    <label for="icon-telephone">Buscar Pastel</label>
+                </div>-->
+            </div> 
+        </form>
+    </div>
+    <div class="row clientea modificarclientea"> <!--href="/postm_pastel/{{i.id}}"  action="{% url 'post_pastel' %}"href="/detalle_pastel/{{i.id}}" -->
+        {% for i in consulta %}
+        <div class="col s12 m12 l12">
+            <div class="card cont-card" id= "cont-card">
+                <a class = "a-card" onclick="modificarca('/abarrotes/sacar_datos_clientea/{{i.id}}')" data-my-id="{{ i.id }}" class="my-link">
+                    <div class="card-content black-text">
+                        <span class="card-title activator grey-tex text-darken-4">
+                            <i class="material-icons">groups</i>
+                                <i class="letras"> 
+                                    Nombre: {{i.nombre}},
+                                    Apellido:{{i.apellido}}
+                                </i> 
+                        </span>
+                    </div>
+                </a>
+                <div class = "delete">
+                    <i class = "material-icons right btn_delete" data-idz="{{i.id}}">delete</i> 
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="fixed-action-btn">
+    <a class = "btn-floating btn-large pulsa para agregarclientea pulse" style = "background-color: #8f1d1d">
+        <i class = "large material-icons">add</i>
+    </a>
+</div>
+
+<div id = "agregarclientea" class="modal modal-big">
+    <form action = "{% url 'post_clientea' %} " method = "POST" enctype = "multipart/form-data">{% csrf_token%}
+        <div class = "modal-content">
+            <center><h4>Agregar cliente</h4></center>
+            </br>
+            {{formulario.as_p}}
+        </div>
+        <div class = "modal-footer">
+            <button type = "button" class = "btn modal-close waves-effect waves-green grey btn-small">Cancelar</button>
+            <button type = "submit" class = "btn waves-effect waves waves-green green">Agregar</button>
+        </div>
+    </form>
+</div>
+
+<div id="modificarclientea" class="modal modal-big">
+    <form action="{% url 'post_clientea' %} " method="POST" enctype="multipart/form-data">
+        <div class="modal-content">
+            <center><h4>Modificar cliente</h4></center>{% csrf_token %}
+            <br/>
+            {{formulario.as_p}}
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn modal-close waves-effect waves-green grey btn-small">Cancelar</button>
+            <button type="submit" class="btn waves-effect waves-green green ">Agregar</button>
+        </div>
+    </form>
+</div>
+
+
 {% endblock content%}
+
 
 {% block js %}
 <script type = "text/javascript">
+    
+$(document).ready(function(){
+    $('.materialboxed').materialbox();
+    $('#agregarclientea').modal({
+        dismissible: true,
+    });
+    $('.materialboxed').materialbox();
+    $('#modificarclientea').modal({
+        dismissible: true,
+    });
+});
+
+$(document).on("click",".agregarclientea", function(){
+    $('#agregarclientea').modal('open');
+});
+
+    /*
+    $(document).on("click",".modificarpastel", function(){
+        $('#modificarpastel').modal('open');
+    });
+    */
+
+function agregarclientea(formData){
+    $.ajax({
+        url:"{% url 'post_clientea' %}",
+        method:"POST",
+        data:formData,
+        success: function(data){
+            var injerto='<div class="col s12 m12 l12">'+
+            '<a href="">'+
+                '<div class = "card">'+
+                    '<div class="card-content">'+
+                        '<span class="card-title activator grey-tex text-darken-4"><i class="material-icons">groups</i>nombre: {{i.nombre}} <i class = "material-icons right btn_delete">delete</i> </span>'+
+                    '</div>'+
+                '</div>'+
+            '</a>'+
+        '</div>';
+        $('.clientea').append(injerto)
+            M.toast({html: "cliente agregado exitosamente!!!!!"});
+            $('#agregarclientea').modal('close');
+        },
+        error:function(data){
+            console.log("error")
+        }
+    });
+}
+
+function modificarca(id){
+    $.ajax({
+        url:id,
+        type: 'GET',
+        dataType: 'html',
+        success: function(data) {
+            $('#modificarclientea').html(data);// aqui es donde cargo la informacion en el modal
+            $('#modificarclientea').modal('open')//aqui es donde muestro el modal
+        }
+    }); 
+      
+};
+
+$(".btn_delete").click(function(evento){
+    $('#modificarclientea').modal('close');
+    evento.preventDefault();
+    idclientea = $(this).attr('data-idz')
+    clientea=$(this)
+    formData={
+        "idcliente":idclientea
+    }
+    var csrf_token = $("#csrf_token").val()
+    $.ajaxSetup({
+    headers:{
+        'X-CSRFToken': csrf_token
+        }
+    });
+    $.ajax({
+        url:"/abarrotes/removerclientea",
+        method:"POST",
+        data:formData,
+        success: function(data){
+            $('#modificarclientea').modal('close');
+            console.log(data);
+            clientea.closest('#cont-card').remove()
+            M.toast({html:'Cliente borrado exitosamente'});
+        },
+        error:function(data){
+            console.log("error");
+        }
+    });
+});
+
+
+</script>
+
 
 {% endblock js %}

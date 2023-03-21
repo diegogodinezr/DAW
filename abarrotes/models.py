@@ -40,7 +40,6 @@ class sucursal_a(models.Model):
     ciudad = models.CharField(max_length=50, blank=False, default=None)
     telefono = models.IntegerField(null=False, blank=False)
 
-
 class empleado_a(models.Model):
     nombre = models.CharField(max_length=20, blank=False, default=None)
     apellido = models.CharField(max_length=70, blank=False, default=None)
