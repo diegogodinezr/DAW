@@ -1,3 +1,58 @@
 from django.db import models
 
 # Create your models here.
+class producto_r(models.Model):
+    nombre = models.CharField(max_length=20, blank=False, default=None)
+    precio = models.FloatField(blank=False, default=None)
+    descuento = models.FloatField(blank=True, default=None)
+    categoria = models.CharField(max_length=40, blank=False, default=None)
+    cantidad = models.IntegerField(null=False, blank=False)
+    tipo = models.CharField(max_length=40, blank=False, default=None)
+
+
+class cliente_r(models.Model):
+    nombre = models.CharField(max_length=20, blank=False, default=None)
+    apellido = models.CharField(max_length=70, blank=False, default=None)
+    codigo_postal = models.IntegerField(null=False, blank=False)
+    calle = models.CharField(max_length=100, blank=False, default=None)
+    colonia = models.CharField(max_length=100, blank=False, default=None)
+    num_ext = models.IntegerField(null=False, blank=False)
+    num_int = models.IntegerField(null=True, blank=True, default=None)
+    estado = models.CharField(max_length=20, blank=False, default=None)
+    ciudad = models.CharField(max_length=50, blank=False, default=None)
+
+class proveedor_r(models.Model):
+    empresa = models.CharField(max_length=70, blank=False, default=None)
+    codigo_postal = models.IntegerField(null=False, blank=False)
+    calle = models.CharField(max_length=100, blank=False, default=None)
+    colonia = models.CharField(max_length=100, blank=False, default=None)
+    num_ext = models.IntegerField(null=False, blank=False)
+    num_int = models.IntegerField(null=True, blank=True, default=None)
+    estado = models.CharField(max_length=20, blank=False, default=None)
+    ciudad = models.CharField(max_length=50, blank=False, default=None)
+    telefono = models.IntegerField(null=False, blank=False)
+
+class sucursal_r(models.Model):
+    codigo_postal = models.IntegerField(null=False, blank=False)
+    calle = models.CharField(max_length=100, blank=False, default=None)
+    colonia = models.CharField(max_length=100, blank=False, default=None)
+    num_ext = models.IntegerField(null=False, blank=False)
+    num_int = models.IntegerField(null=True, blank=True, default=None)
+    estado = models.CharField(max_length=20, blank=False, default=None)
+    ciudad = models.CharField(max_length=50, blank=False, default=None)
+    telefono = models.IntegerField(null=False, blank=False)
+
+class empleado_r(models.Model):
+    nombre = models.CharField(max_length=20, blank=False, default=None)
+    apellido = models.CharField(max_length=70, blank=False, default=None)
+    codigo_postal = models.IntegerField(null=False, blank=False)
+    calle = models.CharField(max_length=100, blank=False, default=None)
+    colonia = models.CharField(max_length=100, blank=False, default=None)
+    num_ext = models.IntegerField(null=False, blank=False)
+    num_int = models.IntegerField(null=True, blank=True, default=None)
+    estado = models.CharField(max_length=20, blank=False, default=None)
+    ciudad = models.CharField(max_length=50, blank=False, default=None)
+
+class categoria_r(models.Model):
+    nombre = models.CharField(max_length=20, blank=False, default=None)
+    descripcion = models.CharField(max_length=100, blank=False, default=None)
