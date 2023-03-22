@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content%}
+
+{% if view_name == "prototipo" %}
+<p>si es la vista que deseas</p>
+{% endif %}
+
+{% if request.user.is_authenticated %}
+<h1 style = "background-color: darkgreen;">Hola si esta autenticado</h1>
+
+{% endif %}
+
+{% if request.user.is_superuser %}
+<h1 style = "background-color: crimson;">Hola soy el condicional que hace requsiciones a la base de datos</h1>
+
+{% endif %}
+{% endblock content%}
+
+{% block javascript %}
+
+{% endblock javascript %}

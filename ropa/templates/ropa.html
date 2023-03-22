@@ -1,12 +1,191 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ropa</title>
-</head>
-<body>
-    <h1>Esto es para la app de ropa</h1>
-</body>
-</html>
+{% extends "base_r.html" %} {% load static %} {% block content %}
+<style>
+
+.carousel{
+  min-heigth: 500px
+}
+.carousel .carousel-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  width: 500px;
+  heigth: 500px;
+}
+.carousel .carousel-item img {
+  width: 100%;
+  heigth: 100%;
+  object-fit: cover;
+  position: absolute;
+  z-index: -1;
+  border-radius: 25px;
+}
+.carousel .indicators .indicator-item{
+  border-radius: 0;
+  transform: rotate(45deg);
+  margin: 0 15px;
+  background: #36221c;
+}
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class = "col s12">
+            <h1 class = "center-align titulo">"Viste con poder en El Belico"</h1>
+            <div class = "carousel center-align">
+                <div class = "carousel-item">
+                    <h2 class = "subtitulo">Blazers</h2>
+                    <div class="linea-division"></div>
+                    <img src="/media/blazers.jpeg" alt="">
+                </div>
+                <div class = "carousel-item">
+                  <h2 class = "subtitulo">Camisas</h2>
+                  <div class="linea-division"></div>
+                  <img src="/media/camisa.jpeg" alt="">
+                </div>
+                <div class = "carousel-item">
+                  <h2 class = "subtitulo">Polos</h2>
+                  <div class="linea-division"></div>
+                  <img src="/media/polo.jpeg" alt="">
+                </div>
+                <div class = "carousel-item">
+                  <h2 class = "subtitulo">Pantalones</h2>
+                  <div class="linea-division"></div>
+                  <img src="/media/pantalon.jpeg" alt="">
+                </div>
+                <div class = "carousel-item">
+                  <h2 class = "subtitulo">Shorts</h2>
+                  <div class="linea-division"></div>
+                  <img src="/media/short.jpeg" alt="">
+                </div>
+                <div class = "carousel-item">
+                  <h2 class = "subtitulo">Accesorios</h2>
+                  <div class="linea-division"></div>
+                  <img src="/media/mochila.jpeg" alt="">
+                </div>
+                <div class = "carousel-item">
+                  <h2 class = "subtitulo">Perfumes</h2>
+                  <div class="linea-division"></div>
+                  <img src="/media/perfume.jpeg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ <div class="container">
+  <div class="section">
+    <!--   Icon Section   -->
+    <div class="row">
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center black-text">
+            <i class="medium material-icons">inventory</i>
+          </h2>
+          <h4 class="center">Productos</h4>
+          <p class="center-align">
+            <a
+              href="/abarrotes/landingproductoa"
+              class="btn btn-big grey darken-4 white-text waves-effect"
+              >VER MAS</a
+            >
+          </p>
+        </div>
+      </div>
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center black-text">
+            <i class="medium material-icons">groups</i>
+          </h2>
+          <h4 class="center">Clientes</h4>
+          <p class="center-align">
+            <a
+              href="/abarrotes/landingclientea"
+              class="btn btn-big grey darken-4 white-text waves-effect"
+              >VER MAS</a
+            >
+          </p>
+        </div>
+      </div>
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center black-text"><i class="medium material-icons">cases</i></h2>
+          <h4 class="center">Proveedores</h4>
+          <p class="center-align">
+            <a
+              href="/abarrotes/landingproveedora"
+              class="btn btn-big grey darken-4 white-text waves-effect"
+              >VER MAS</a
+            >
+          </p>
+        </div>
+      </div>
+      <br></br>
+      <br></br>
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center black-text"><i class="medium material-icons">store</i></h2>
+          <h4 class="center">Sucursales</h4>
+          <p class="center-align">
+            <a
+              href="/abarrotes/landingsucursala"
+              class="btn btn-big grey darken-4 white-text waves-effect"
+              >VER MAS</a
+            >
+          </p>
+        </div>
+      </div>
+
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center black-text"><i class="medium material-icons">group</i></h2>
+          <h4 class="center">Empleados</h4>
+          <p class="center-align">
+            <a
+              href="/abarrotes/landingempleadoa"
+              class="btn btn-big grey darken-4 white-text waves-effect"
+              >VER MAS</a
+            >
+          </p>
+        </div>
+      </div>
+
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center black-text">
+            <i class="medium material-icons">category</i>
+          </h2>
+          <h4 class="center">Categorias</h4>
+          <p class="center-align">
+            <a
+              href="/abarrotes/landingcategoriaa"
+              class="btn btn-big grey darken-4 white-text waves-effect"
+              >VER MAS</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br /><br />
+</div>
+
+{% endblock content%} {% block js %}
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.carousel');
+    var instances = M.Carousel.init(elems, {
+        duration: 150,
+        dist: -80,
+        shift: 5,
+        padding: 5,
+        numVisible: 3,
+        indicators: true,
+        noWrap:false,
+    });
+    });
+
+
+</script>
+{% endblock js %}

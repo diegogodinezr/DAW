@@ -313,3 +313,13 @@ def updatesucursal(request,id):
         'id':id,
     }
     return render (request, template_to_return,context)
+
+def practica (request):
+    template = "practica.html"
+    array = [1,2,3,4,5,6,7,8,9,10]
+    print(array)
+    context={
+        'view_name':"prototipo",
+        'array': array,
+    }
+    return render (request,template,context)

@@ -35,4 +35,6 @@ urlpatterns = [
     path('sacar_datos_sucursal/<int:id>', updatesucursal,name="postm_sucursal"),
     path('removersucursal',removersucursal, name='removersucursal'),
 
+    path('practica/',practica, name='practica'), 
+
 ]
