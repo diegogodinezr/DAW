@@ -1,0 +1,101 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<body>
+<div class="parallax-container">
+    <div class="parallax">
+      <img src="/media/cake1.webp"/>
+    </div>
+  </div>
+  <div class="section white">
+    <div class="row container center">
+        
+      <h2 class="header"><i class="medium material-icons">cake</i>Pasteles el belico</h2>
+      <p class="grey-text text-darken-3 lighten-3">
+        "Pasteles que conquistan tu corazón, solo en El Belico"
+      </p>
+    </div>
+  </div>
+  <div class="parallax-container">
+    <div class="parallax"><img src="/media/cake1.webp" /></div>
+  </div>
+</body>
+
+
+
+ <div class="container">
+  <div class="section">
+    <!--   Icon Section   -->
+    <div class="row">
+      <div class="col s6">
+        <div class="icon-block">
+          <h2 class="center black-text">
+            <i class="medium material-icons">cake</i>
+          </h2>
+          <h4 class="center">Pasteles</h4>
+          <p class="center-align">
+            <a
+              href="/landingpastel"
+              class="btn btn-big red lighten-4 white-text waves-effect"
+              >VER MAS</a
+            >
+          </p>
+        </div>
+      </div>
+      <div class="col s6">
+        <div class="icon-block">
+          <h2 class="center black-text">
+            <i class="medium material-icons">groups</i>
+          </h2>
+          <h4 class="center">Clientes</h4>
+          <p class="center-align">
+            <a
+              href="/landingcliente"
+              class="btn btn-big red lighten-4 white-text waves-effect"
+              >VER MAS</a
+            >
+          </p>
+        </div>
+      </div>
+      <div class="col s6">
+        <div class="icon-block">
+          <h2 class="center black-text">
+            <i class="medium material-icons">cases</i>
+          </h2>
+          <h4 class="center">Proveedores</h4>
+          <p class="center-align">
+            <a
+              href="/landingproveedor"
+              class="btn btn-big red lighten-4 white-text waves-effect"
+              >VER MAS</a
+            >
+          </p>
+        </div>
+      </div>
+      <div class="col s6">
+        <div class="icon-block">
+          <h2 class="center black-text">
+            <i class="medium material-icons">store</i>
+          </h2>
+          <h4 class="center">Sucursales</h4>
+          <p class="center-align">
+            <a
+              href="/landingsucursal"
+              class="btn btn-big red lighten-4 white-text waves-effect"
+              >VER MAS</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br /><br/>
+</div>
+
+
+{% endblock content%} {% block js %}
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+      var elems = document.querySelectorAll(".parallax");
+      var instances = M.Parallax.init(elems);
+    });
+  </script>
+{% endblock js %}

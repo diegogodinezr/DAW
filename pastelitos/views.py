@@ -4,6 +4,23 @@ from .models import *
 from django.shortcuts import redirect
 from django.http import HttpResponse
 from django.template.loader import render_to_string
+from django.contrib.auth import authenticate, login
+from django.contrib import messages
+
+def home(request):
+    template_to_return='principal.html'
+    context={ 
+        'view_name': "landing1",
+    }
+    return render (request,template_to_return,context)
+
+
+def homep(request):
+    template_to_return='landing.html'
+    context={ 
+        'view_name': "landing1",
+    }
+    return render (request,template_to_return,context)
 
 ##===============PASTEL=====================
 def sacar_datos(request, id):
@@ -45,7 +62,7 @@ def post_pastel(request):
                 pisos = request.POST["pisos"],
                 tipo = request.POST["tipo"],
             )
-            return redirect('landing')
+            return redirect('landingpastel')
         else:
             form = pastelform()
         return render(request,'hola.html')
@@ -65,7 +82,7 @@ def updatepastel(request,id):
             resultado.pisos=request.POST["pisos"]
             resultado.tipo=request.POST["tipo"]
             resultado.save()
-            return redirect("landing")
+            return redirect("landingpastel")
 
     context={
         'form':form,
@@ -323,3 +340,41 @@ def practica (request):
         'array': array,
     }
     return render (request,template,context)
+
+
+#====================LOGIN====================
+def login_usuario(request):
+    if request.user.is_authenticated:
+        return redirect('pasteles')
+    else:
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            password =request.POST.get('password')
+
+            user = authenticate(request, username=username, password=password)
+
+            if user is not None:
+                login(request, user)
+                return redirect('pasteles')
+            else:
+                messages.info(request, 'Username OR password is incorrect')
+
+        context = {}
+        return render(request, 'login.html', context)
+    
+#======================REGISTRO=================
+def registro(request):
+    if request.user.is_authenticated:
+        return redirect('pasteles')
+    else:
+        form = CreateUserForm()
+        if request.method=='POST':
+            form= CreateUserForm(request.POST)
+            if form.is_valid():
+                form.save()
+                user=form.cleaned_data.get('username')
+                messages.success(request,'La cuenta ha sido creada para:'+ user)
+                return redirect('pasteles')
+
+        context={'form':form}
+        return render(request,'register.html',context)

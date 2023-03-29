@@ -34,7 +34,6 @@ def post_productor(request):
             producto_r.objects.create(
                 nombre = request.POST["nombre"],
                 precio = request.POST["precio"],
-                descuento = request.POST["descuento"],
                 categoria = request.POST["categoria"],
                 cantidad = request.POST["cantidad"],
                 tipo = request.POST["tipo"],
@@ -54,7 +53,6 @@ def updateproductor(request,id):
         if form.is_valid():
             resultado.nombre = request.POST["nombre"]
             resultado.precio = request.POST["precio"]
-            resultado.descuento = request.POST["descuento"],
             resultado.categoria = request.POST["categoria"]
             resultado.cantidad = request.POST["cantidad"]
             resultado.tipo = request.POST["tipo"]

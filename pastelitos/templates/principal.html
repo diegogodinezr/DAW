@@ -1,0 +1,81 @@
+{% extends "basep.html" %} {% load static %} 
+
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<script type="text/javascript" src="{% static 'materialize/css/materialize.css' %}"></script>
+
+<style>
+{% comment %} css {% endcomment %}
+.texto-justificado{
+    text-align: justify;
+    }
+</style>
+
+
+<div class="parallax-container">
+    <div class="parallax">
+    <img src="/media/landing.jpg"/>
+    </div>
+    </div>
+    <div class="section white">
+    <div class="row container center">
+        
+        <h2 class="header">EL BELICO</h2>
+        <p class="grey-text text-darken-3 lighten-3">
+        "Encuentra todo lo que necesitas en un solo lugar en El Belico".
+        </p>
+        <a
+            href="/login"
+            class="btn btn-big purple darken-3 white-text waves-effect"
+            >INICIAR SESION O INGRESAR</a>
+    </div>
+    </div>
+    <div class="parallax-container">
+    <div class="parallax"><img src="/media/landing2.jpg" /></div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="section">
+        <div class="row">
+            <div class="col s4">
+                <div class="icon-block">
+                    <h2 class="center black-text">
+                        <i class="medium material-icons center">checklist</i>
+                    </h2>
+                    <h4 class="center">Calidad en el servicio</h4>
+                    <h6 class="texto-justificado">La empresa se enfoca en brindar un excelente servicio al cliente, asegurándose de que cada persona que visita la tienda se sienta atendida y satisfecha con su experiencia de compra.</h6>
+                </div>
+            </div>
+            <div class="col s4">
+                <div class="icon-block">
+                    <h2 class="center black-text">
+                        <i class="medium material-icons center">group_work</i>
+                    </h2>
+                    <h4 class="center">Amplia selección</h4>
+                    <h6 class="texto-justificado">"El Belico" se encarga de ofrecer una amplia variedad de productos, desde pasteles hasta ropa y abarrotes, lo que la convierte en una tienda completa que satisface las necesidades de diferentes tipos de clientes.</h6>
+                </div>
+            </div>
+            <div class="col s4">
+                <div class="icon-block">
+                    <h2 class="center black-text">
+                        <i class="medium material-icons center">devices</i>
+                    </h2>
+                    <h4 class="center">Innovación</h4>
+                    <h6 class="texto-justificado">"El Belico" busca estar siempre a la vanguardia en cuanto a la oferta de productos y servicios, lo que la lleva a estar en constante renovación y mejora.</h6>
+                </div>
+            </div>
+        </div>  
+    </div>
+</div>
+
+
+{% endblock content %}
+{% block js %}
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function () {
+    var elems = document.querySelectorAll(".parallax");
+    var instances = M.Parallax.init(elems);
+    });
+</script>
+{% endblock js %}

@@ -3,6 +3,7 @@ from django.urls import path
 from django.conf.urls import url,include
 from ropa.views import *
 from .views import *
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     url(r'^$',landingr, name="landingr"),
@@ -49,4 +50,5 @@ urlpatterns = [
     path('sacar_datos_categoriar/<int:id>', updatecategoriar,name="postm_categoriar"),
     path('removercategoriar', removercategoriar, name='removercategoriar'),
 
+    path('logout/',LogoutView.as_view(next_page='/'), name='logout'),
 ]

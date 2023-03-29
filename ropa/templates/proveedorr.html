@@ -62,6 +62,7 @@
             </div> 
         </form>
     </div>
+    {% if request.user.is_authenticated %}
     <div class="row proveedora modificarproveedora"> <!--href="/postm_pastel/{{i.id}}"  action="{% url 'post_pastel' %}"href="/detalle_pastel/{{i.id}}" -->
         {% for i in consulta %}
         <div class="col s12 m12 l12">
@@ -118,7 +119,7 @@
         </div>
     </form>
 </div>
-
+{% endif %}
 
 {% endblock content%}
 

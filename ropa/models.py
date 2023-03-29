@@ -4,7 +4,6 @@ from django.db import models
 class producto_r(models.Model):
     nombre = models.CharField(max_length=20, blank=False, default=None)
     precio = models.FloatField(blank=False, default=None)
-    descuento = models.FloatField(blank=True, default=None)
     categoria = models.CharField(max_length=40, blank=False, default=None)
     cantidad = models.IntegerField(null=False, blank=False)
     tipo = models.CharField(max_length=40, blank=False, default=None)

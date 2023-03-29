@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	{% block title %}<title>Sistema</title> {% endblock title %}
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" media="screen,projection">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="theme-color" content="#0066ff">
+	<link rel="stylesheet" type="text/css" href="{% static 'materialize/css/materialize.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'materialize/css/materialize.css' %}">
+    <script type="text/javascript" src="{% static 'materialize/css/materialize.css' %}"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+	<script type="text/javascript" src="{% static 'materialize/jQuery/jquery.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+   <!-- <script  src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js "  integrity = " sha384-THVO / sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb / PTA7LdUHs "  crossorigin = " anonymous " > </script>
+    <script  src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js" ></script>-->
+
+   
+  
+
+
+   <!--<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/se-2.2.13/dt-1.10.18/af-2.3.2/b-1.5.4/b-flash-1.5.4/b-html5-1.5.4/r-2.2.2/datatables.min.css"/>-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.2/css/responsive.dataTables.min.css">
+    <script src="{% static '/locale/es.js' %}"></script>
+
+<body>
+    <header></header>
+
+<main>
+
+	{% block content %}
+	{% endblock content%}
+
+</main>
+
+	<script type="text/javascript" src="{% static 'materialize/js/materialize.min.js' %}"></script>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/responsive/2.2.2/js/dataTables.responsive.min.js"></script>
+    <script src="{% static 'jsPDF/jspdf.js' %}"></script>
+    <script src="{% static 'auto-table/auto-table.plugin.js' %}"></script>
+
+
+	<script type="text/javascript">
+         // Recordar tab
+    $('#tabs-swipe').tabs({
+        // swipeable:true,
+
+    });
+
+	$(document).ready(function(){
+        $('select').formSelect();
+    });
+    $("select[required]").css({
+        display: "block",
+        position: 'absolute',
+        background: "none",
+        border: "none",
+        color: "transparent",
+        top: 0,
+    })
+	$(document).ready(function(){
+	    $('.sidenav').sidenav({
+	        draggable:true,
+	    });
+	});
+
+    $(document).ready(function(){
+        $('.tooltipped').tooltip({
+
+        });
+    });
+    $(document).ready(function(){
+        $('.collapsible').collapsible();
+    });
+    $(document).ready(function(){
+        $('.fixed-action-btn').floatingActionButton({
+            toolbarEnabled: false
+        });
+    });
+
+    var optionsDatepicker= {
+        container: 'body',
+        showClearBtn: true,
+        setDefaultDate: true,
+        format: "dd/mm/yyyy",
+        // defaultDate: new Date(),
+        i18n:{
+            cancel: 'Cancelar',
+            clear:	'Borrar',
+            months: [ 'Enero', 'Febrero','Marzo','Abril', 'Mayo','Junio','Julio', 'Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+            monthsShort:['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dec'],
+            weekdays: ['Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sabado'],
+            weekdaysShort:['Dom','Lun','Mar', 'Mie','Jue','Vie','Sab'],
+            weekdaysAbbrev:	['D','L','m','M','J','V','S']
+        },
+
+    }
+    $(document).ready(function(){
+        $('.datepicker').datepicker(optionsDatepicker);
+    });
+
+    $(document).ready(function(){
+        $('.timepicker').timepicker({
+            container: 'body',
+            vibrate:true,
+            showClearBtn: true,
+            twelveHour:false,
+            i18n:{
+                cancel: 'Cancelar',
+                clear:	'Borrar',
+                done: 'Agregar',
+
+            }
+        });
+    });
+
+
+	</script>
+	{% block js %}
+	{% endblock js %}
+
+<footer>
+      <div class="footer-copyright grey-text black">
+        <div class="container">
+        © 2023 Copyright
+        <a class="grey-text"alling=" center" href="#!"></a>
+        </div>
+      </div>
+</footer>
+
+</body>
+</html>
+

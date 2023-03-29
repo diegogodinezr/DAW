@@ -14,6 +14,8 @@
 	<script type="text/javascript" src="{% static 'materialize/jQuery/jquery.min.js' %}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
    <!-- <script  src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js "  integrity = " sha384-THVO / sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb / PTA7LdUHs "  crossorigin = " anonymous " > </script>
     <script  src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js" ></script>-->
@@ -183,17 +185,17 @@
 
     </style>
 	{% if not view_name == "landing" %}
-    <nav style="background-color:#CA8665">
+    <nav style="background-color:#ffcdd2">
         <div class="nav-wrapper">
-          <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+         <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <!--<a href = "/" class="brand-logo brand-logo-lg"><i class="material-icons">cake</i>Pasteles</a>-->
           <ul class="right">
             <li><a href="http://127.0.0.1:8000/abarrotes/"><i>Abarrotes</i></a></li>
-            <li><a href="/"><i>Pastelitos</i></a></li>
+            <li><a href="/pasteles"><i>Pastelitos</i></a></li>
             <li><a href="http://127.0.0.1:8000/ropa/"><i>Ropa</i></a></li>
           </ul>
           <ul class="left hide-on-med-and-down " >
-                <li><a href="#" data-target="slide-out" class="sidenav-trigger "><i class="material-icons">menu</i></a></li>
+                <li><a href="#" data-target="slide-out" class="sidenav-trigger "><i class="material-icons">menu</i></a></li>                {% comment %} <li><a href="/" class="brand-logo "> <i class="material-icons">cake</i>Pasteles</a></li> {% endcomment %}
                 {% comment %} <li><a href="/" class="brand-logo "> <i class="material-icons">cake</i>Pasteles</a></li> {% endcomment %}
           </ul>
         </div>
@@ -216,7 +218,8 @@
     </li>
 
     {% if request.user.is_authenticated %}
-        <li><a class="waves-teal" href="/"><i class="material-icons">cake</i>Pasteles</a></li>
+        <li><a class="waves-teal" href="/pasteles"><i class="material-icons">home</i>Home</a></li>
+        <li><a class="waves-teal" href="/landingpastel"><i class="material-icons">inventory</i>Pasteles</a></li>
         <li><a class="waves-teal" href="/landingcliente"><i class="material-icons">groups</i>Clientes</a></li>
         <li><a class="waves-teal" href="/landingproveedor"><i class="material-icons">cases</i>Proveedores</a></li>
         <li><a class="waves-teal" href="/landingsucursal"><i class="material-icons">store</i>Sucursales</a></li>
@@ -232,9 +235,11 @@
 
         {% endif %}
         <!--<li><a href="/logout"><i class="material-icons">exit_to_app</i>Cerrar sesión</a></li>-->
-
+    
     {% endif %}
-
+    <li><a class="waves-teal" href="/login"><i class="material-icons">login</i>INICIAR SESION</a></li>
+    <li><a class="waves-teal" href="/logout"><i class="material-icons">logout</i>CERRAR SESION</a></li>
+    
     </ul>
 </head>
 <body>
@@ -250,6 +255,7 @@
 	<script type="text/javascript" src="{% static 'materialize/js/materialize.min.js' %}"></script>
     
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>

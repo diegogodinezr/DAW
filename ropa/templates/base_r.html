@@ -207,16 +207,15 @@
 	{% if not view_name == "landing" %}
     <nav style="background-color:#212121">
         <div class="nav-wrapper">
-          <a href="/ropa"  class="sidenav-trigger"><i class="material-icons">home</i></a>
+           <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <!--<a href = "/" class="brand-logo brand-logo-lg"><i class="material-icons">cake</i>Pasteles</a>-->
           <ul class="right">
             <li><a href="http://127.0.0.1:8000/abarrotes/"><i>Abarrotes</i></a></li>
-            <li><a href="/"><i>Pastelitos</i></a></li>
+            <li><a href="/pasteles"><i>Pastelitos</i></a></li>
             <li><a href="http://127.0.0.1:8000/ropa/"><i>Ropa</i></a></li>
           </ul>
           <ul class="left hide-on-med-and-down " >
-                <li><a href="/ropa" class="sidenav-trigger "><i class="material-icons">home</i></a></li>
-                {% comment %} <li><a href="/" class="brand-logo "> <i class="material-icons">cake</i>Pasteles</a></li> {% endcomment %}
+            <li><a href="#" data-target="slide-out" class="sidenav-trigger "><i class="material-icons">menu</i></a></li>                {% comment %} <li><a href="/" class="brand-logo "> <i class="material-icons">cake</i>Pasteles</a></li> {% endcomment %}
           </ul>
         </div>
     </nav>
@@ -238,13 +237,13 @@
     </li>
 
     {% if request.user.is_authenticated %}
-{% comment %}         <li><a class="waves-teal" href="/abarrotes"><i class="material-icons">home</i>Home</a></li>
-        <li><a class="waves-teal" href="/abarrotes/landingproductoa"><i class="material-icons">inventory</i>Productos</a></li>
-        <li><a class="waves-teal" href="/abarrotes/landingclientea"><i class="material-icons">groups</i>Clientes</a></li>
-        <li><a class="waves-teal" href="/abarrotes/landingproveedora"><i class="material-icons">cases</i>Proveedores</a></li>
-        <li><a class="waves-teal" href="/abarrotes/landingsucursala"><i class="material-icons">store</i>Sucursales</a></li>
-        <li><a class="waves-teal" href="/abarrotes/landingempleadoa"><i class="material-icons">group</i>Empleados</a></li>
-        <li><a class="waves-teal" href="/abarrotes/landingcategoriaa"><i class="material-icons">category</i>Categorias</a></li> {% endcomment %}
+        <li><a class="waves-teal" href="/ropa"><i class="material-icons">home</i>Home</a></li>
+        <li><a class="waves-teal" href="/ropa/landingproductor"><i class="material-icons">inventory</i>Productos</a></li>
+        <li><a class="waves-teal" href="/ropa/landingclienter"><i class="material-icons">groups</i>Clientes</a></li>
+        <li><a class="waves-teal" href="/ropa/landingproveedorr"><i class="material-icons">cases</i>Proveedores</a></li>
+        <li><a class="waves-teal" href="/ropa/landingsucursalr"><i class="material-icons">store</i>Sucursales</a></li>
+        <li><a class="waves-teal" href="/ropa/landingempleador"><i class="material-icons">group</i>Empleados</a></li>
+        <li><a class="waves-teal" href="/ropa/landingcategoriar"><i class="material-icons">category</i>Categorias</a></li>
         {% if request.user.is_staff %}
          <!--<li><a class="waves-teal" href="/admin"><i class="material-icons">account_balance</i>Balance de la cuenta</a></li> -->
         {%  endif %}
@@ -259,6 +258,8 @@
         <!--<li><a href="/logout"><i class="material-icons">exit_to_app</i>Cerrar sesión</a></li>-->
 
     {% endif %}
+    <li><a class="waves-teal" href="/login"><i class="material-icons">login</i>INICIAR SESION</a></li>
+    <li><a class="waves-teal" href="/logout"><i class="material-icons">logout</i>CERRAR SESION</a></li>
 
     </ul>
 </head>

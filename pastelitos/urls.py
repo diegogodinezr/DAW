@@ -4,9 +4,17 @@ from django.conf.urls import url,include
 from pastelitos.views import *
 from .views import *
 from . import views
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
-    url(r'^$',landing, name="landing"),
+    url(r'^$',home, name="principal"),
+
+    path('login/', login_usuario, name="login_usuario"),
+    path('register/', registro, name="registro"),
+
+    path('pasteles/', homep, name="pasteles"),
+
+    path('landingpastel/', landing, name="landingpastel"),
     path('post_pastel/', post_pastel, name="post_pastel"),
     path('detalle_pastel/<int:id>', updatepastel, name="updatepastel"),
     path('postm_pastel/<int:id>', updatepastel, name="postm_pastel"),
@@ -36,5 +44,5 @@ urlpatterns = [
     path('removersucursal',removersucursal, name='removersucursal'),
 
     path('practica/',practica, name='practica'), 
-
+    path('logout/',LogoutView.as_view(next_page='/'), name='logout'),
 ]

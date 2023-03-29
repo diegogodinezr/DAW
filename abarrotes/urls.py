@@ -3,6 +3,7 @@ from django.urls import path
 from django.conf.urls import url,include
 from abarrotes.views import *
 from .views import *
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     url(r'^$',landinga, name="landinga"),
@@ -48,5 +49,7 @@ urlpatterns = [
     path('postm_categoriaa/<int:id>', updatecategoriaa, name="postm_categoriaa"),
     path('sacar_datos_categoriaa/<int:id>', updatecategoriaa,name="postm_categoriaa"),
     path('removercategoriaa', removercategoriaa, name='removercategoriaa'),
+
+    path('logout/',LogoutView.as_view(next_page='/'), name='logout'),
 
 ]
