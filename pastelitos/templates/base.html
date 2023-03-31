@@ -182,6 +182,32 @@
     .dataTables_length select {
         display:block;
     }
+    .carousel{
+        min-heigth: 500px
+      }
+      .carousel .carousel-item{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        user-select: none;
+        width: 500px;
+        heigth: 500px;
+      }
+      .carousel .carousel-item img {
+        width: 100%;
+        heigth: 100%;
+        object-fit: cover;
+        position: absolute;
+        z-index: -1;
+        border-radius: 25px;
+      }
+      .carousel .indicators .indicator-item{
+        border-radius: 0;
+        transform: rotate(45deg);
+        margin: 0 15px;
+        background: #36221c;
+      }
 
     </style>
 	{% if not view_name == "landing" %}

@@ -91,11 +91,60 @@
 </div>
 
 
+<div class="container">
+  <div class="row">
+      <div class = "col s12">
+          <div class = "carousel center-align">
+              <div class = "carousel-item">
+                  <h2 class = "subtitulo">Red velvet</h2>
+                  <div class="linea-division"></div>
+                  <img src="/media/pastel1.webp" alt="">
+              </div>
+              <div class = "carousel-item">
+                <h2 class = "subtitulo">Nuez</h2>
+                <div class="linea-division"></div>
+                <img src="/media/pastel2.webp" alt="">
+              </div>
+              <div class = "carousel-item">
+                <h2 class = "subtitulo">Zanahoria</h2>
+                <div class="linea-division"></div>
+                <img src="/media/pastel3.webp" alt="">
+              </div>
+              <div class = "carousel-item">
+                <h2 class = "subtitulo">Confetti</h2>
+                <div class="linea-division"></div>
+                <img src="/media/pastel4.webp" alt="">
+              </div>
+              <div class = "carousel-item">
+                <h2 class = "subtitulo">Fresa</h2>
+                <div class="linea-division"></div>
+                <img src="/media/pastel5.webp" alt="">
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
 {% endblock content%} {% block js %}
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function () {
       var elems = document.querySelectorAll(".parallax");
       var instances = M.Parallax.init(elems);
     });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.carousel');
+      var instances = M.Carousel.init(elems, {
+          duration: 150,
+          dist: -80,
+          shift: 5,
+          padding: 5,
+          numVisible: 3,
+          indicators: true,
+          noWrap:false,
+      });
+      });
+  
   </script>
 {% endblock js %}
