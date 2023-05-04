@@ -45,4 +45,8 @@ urlpatterns = [
 
     path('practica/',practica, name='practica'), 
     path('logout/',LogoutView.as_view(next_page='/'), name='logout'),
+
+    path('greetings/', greetings,name='greetings'),
+    path('calculation/',calculation, name='calculation'),
+
 ]
